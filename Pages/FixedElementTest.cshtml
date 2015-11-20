@@ -1,0 +1,83 @@
+@{
+    Layout = "~/Shared/_LayoutTableTest.cshtml";
+    Page.Section = "Home";
+    Page.Name = "Fixed Element";
+    Page.Title = "Fixed Element";
+    Page.TopBarTitle = "Fixed Element";
+    Page.NavLevel = 1;
+}
+
+@section PageHeadEnd {
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+    <meta name="format-detection" content="telephone=no">
+
+    <title>@Page.Title</title>
+
+    <link rel="stylesheet" href="~/vzrf/stylesheets/vzrf/vzrf.css" />
+    <!--[if IE 9]>
+        <link href="/vzrf/stylesheets/vzrf/vzrf-oldie2.css" rel="stylesheet" />
+        <link href="/vzrf/stylesheets/vzrf/vzrf-oldie3.css" rel="stylesheet" />
+    <![endif]-->
+
+
+
+    <style>
+        .position-fixed {
+            position: fixed;
+            top: 300px;
+        }
+        .m_top-400{
+            top:400px;
+        }
+        .main{
+            overflow:hidden;
+            position:relative;
+        }
+
+        .bug-fix-position {
+            transform: none;
+        }
+
+    </style>
+}
+
+<div class="page active">
+    <div class="main">
+        <div class="row">
+            <div class="columns">
+
+                <div class="position-fixed bg-grey-5 padding-all-tiny">Fixed Element</div>
+
+                <div class="position-fixed m_top-400"><a href="javascript:;" class="button" data-apply-fix="false">Apply Fix</a></div>
+
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+            </div><!-- .columns -->
+        </div><!-- .row -->
+    </div><!-- .main -->
+</div><!-- .page -->
+
+@section PageBodyEnd {
+<script>
+    $(function () {
+        $(document).on('click', '[data-apply-fix]', function () {
+            $this = $(this);
+            if ($this.attr('data-apply-fix') == 'false') {
+                $('.page,.main').addClass('bug-fix-position'); // overwriting transform(translate3d(0,0,0)); to transform: none; to the classes .page,.main
+                $this.attr('data-apply-fix', 'true');
+                $this.text('Remove Fix');
+            }
+            else{
+                $('.page,.main').removeClass('bug-fix-position'); // transform(translate3d(0,0,0)); to the classes .page,.main
+                $this.attr('data-apply-fix', 'false');
+                $this.text('Apply Fix');
+            }
+
+        })
+    });
+</script>
+}
