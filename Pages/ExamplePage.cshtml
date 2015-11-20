@@ -1,0 +1,56 @@
+@{
+	Layout = "~/Shared/_Layout.cshtml";
+	Page.Section = "Home";
+	Page.Name = "ExamplePage";
+	Page.Title = "Example Page";
+	Page.TopBarTitle = "Example Page";
+	Page.NavLevel = 1;
+}
+
+@section PageHeadEnd {
+	@* Stuff you put here is rendered just before the close of the <head> tag. 
+	This is the preferred place to put page-specific CSS file links. *@
+}
+
+<div class="page active">
+	<div class="main">
+		<div class="row">
+			<div class="columns">
+				<h1>Example Page<br><em>With some ASP.NET Web Pages Tips</em></h1>
+				<p>The following tips are a summary of what is described in <a href="http://www.asp.net/web-pages/tutorials/working-with-pages/3-creating-a-consistent-look">this ASP.NET Web Pages documentation page</a> about creating a consistent look in an ASP.NET Web Pages site (the type of project you're looking at now). Please read the article for a complete understanding of putting together Pages using Layout and Sections (partials).</p>
+				
+				<h3>The Tips</h3>
+				<ol class="spaced-large">
+					<li>Filenames that begin with an underscore in front of a file tell ASP.NET that it will never be rendered to the browser on it's own, but rather is a <strong>Partial</strong> or <strong>Layout</strong> file that is used in building another <strong>Page</strong>.
+					<li>You can dump all of your pages into one "Pages" directory like this one. Or you can be more organized and actually create a folder structure that matches the navigation of the project/application you are working on.</li>
+					<li>You can reuse the same HTML in several pages using "Partials", importing them into your main page like this: <kbd>@@RenderPage("~/shared/_NameOfPartial.cshtml")</kbd>.</li>
+					<li>Each "Page" like this one is placed inside a <strong>Layout</strong> page. You can see this layout page defined in the code at the top of the page along with other variables that are used in the layout page and the layout page's partial includes. Here is what it looks like for this page:<br>
+					<pre><kbd>&#64;{
+  Layout = "~/Shared/_Layout.cshtml";
+  Page.Section = "Home";
+  Page.Name = "ExamplePage";
+  Page.Title = "Example Page";
+  Page.TopBarTitle = "Example Page";
+  Page.NavLevel = 1;
+}</kbd></pre>
+					
+					</li>
+					<li>Differences between <kbd>@@RenderBody()</kbd>, <kbd>@@RenderPage()</kbd>, and <kbd>@@RenderSection()</kbd>. 
+						<ul class="spaced-small">
+							<li><kbd>@@RenderBody()</kbd>: This is placed inside of a <strong>Layout</strong>.  A Layout file has at one and only one <kbd>RenderBody()</kbd>.  Pages, like this Example Page have a <strong>Layout</strong> defined in Razor syntax at the top of the file. The content of this page (or any page with a Layout defined) uses the Layout as its structure and places its own contents in the Layout's <kbd>@@RenderBody()</kbd>.</li>
+							<li><kbd>@@RenderPage("~/Shared/FileName.cshtml")</kbd>: This is a function that inserts the contents of a partial into the contents of the file requesting the page/partial. Take a look at the <kbd>_Layout.cshtml</kbd> of this project to see them in use. You can use them in any type of file, not just Layout files.</li>
+							<li><kbd>@@RenderSection("NameOfSection", required: false)</kbd>: This is for breaking a Page's content up and placing it into different areas of a Layout. In the Layout, define the section using <kbd>@@RenderSection(). Then within the Page, use <kbd>@@section NameOfSection { }</kbd>, placing the content you want to appear in the Layout's section inside the brackets. Look at the source of this Example Page and you will see sections defined at the top and bottom.  These sections don't have to appear in any particular place, but it's nice to place them in the order they will appear in the Layout.</li>
+							<li>All of the above can be a mouthful to read and process, but if you look at this <kbd>ExamplePage.cshtml</kbd> and the <kbd>_Layout.cshtml</kbd> file it will become clear as you match up the Page's contents to the Layout's structure.</li>
+						</ul>
+					</li>
+				</ol> 
+			</div><!-- .columns -->
+		</div><!-- .row -->
+	</div><!-- .main -->
+</div><!-- .page -->
+
+
+@section PageBodyEnd {
+	@* Stuff you put here will show up just before the closing <body> tag. 
+	This is the preferred place to insert page-specific JavaScript. *@
+}
