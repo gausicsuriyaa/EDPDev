@@ -1,0 +1,228 @@
+@{
+	Layout = "~/Shared/_LayoutTableTest.cshtml";
+	Page.Section = "Home";
+	Page.Name = "TableTest";
+	Page.Title = "Table Test";
+	Page.TopBarTitle = "Table Test";
+	Page.NavLevel = 1;
+}
+
+@section PageHeadEnd {
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+<meta name="format-detection" content="telephone=no">
+
+<title>@Page.Title</title>
+
+<link rel="stylesheet" href="~/vzrf/stylesheets/vzrf/vzrf.css" />
+<!--[if IE 9]>
+	<link href="/vzrf/stylesheets/vzrf/vzrf-oldie2.css" rel="stylesheet" />
+	<link href="/vzrf/stylesheets/vzrf/vzrf-oldie3.css" rel="stylesheet" />
+<![endif]-->
+
+
+@*<link rel="stylesheet" href="~/vzrf/stylesheets/app/app.css" />*@
+
+	
+<style>
+
+	#Table input {
+		margin-bottom: 0;
+	}
+
+	.main {
+		overflow:visible;
+	}
+	
+	.faux-field {
+border-radius: 0px;
+background-color: #ECEDEE;
+font-family: inherit;
+border: 2px solid transparent;
+color: #A3A3A3;
+display: block;
+font-size: 1rem;
+margin: 0px 0px 1rem;
+padding: 0.5rem;
+height: 2.9375rem;
+width: 100%;
+outline: medium none !important;
+}
+
+.faux-field.value{
+background-color: #FFF;
+border: 2px solid #9B9B9B;
+color: #595A5D;
+}
+*/
+</style>
+}
+
+<div class="page active">
+	<div class="main">
+		<div class="row">
+			<div class="columns">
+				<h1>Table Test</h1>
+				<p>This page exists for testing the render time of adding a huge number of rows to tables styled with VZRF, and/or app-specific code.</p>
+				<p>Input the number of row's you'd like to create then press "Generate".</p>
+				<label for="NumRows">Rows</label>
+				<input type="text" id="NumRows" class="mw-small" value="800" />
+				<button class="button auto" id="GenerateBatch">Generate Batch (inputs)</button>
+				<button class="button auto" id="GenerateLoop">Generate Loop (inputs)</button>
+				<button class="button auto" id="GenerateBatchDivs">Generate Batch (divs)</button>
+				<button class="button auto" id="GenerateLoopDivs">Generate Loop (divs)</button>
+				<button class="button auto" id="GenerateBatchDivsNoStyle">Generate Batch (divs not styled)</button>
+				<button class="button auto" id="GenerateLoopDivsNoStyle">Generate Loop (divs not styled)</button>
+				<button class="button auto secondary" id="ClearTable">Clear Table</button>
+
+				<table id="Table">
+					<thead>
+						<tr>
+							<th>Column One</th>
+							<th>Column Two</th>
+							<th>Column Three</th>
+							<th>Column Four</th>
+							<th>Column Five</th>
+							<th>Column Six</th>
+							<th>Column Seven</th>
+							<th>Column Eight</th>
+							<th>Column Nine</th>
+							<th>Column Ten</th>
+							<th>Column Eleven</th>
+							<th>Column Twelve</th>
+							<th>Column Thirteen</th>
+							<th>Column Fourteen</th>
+							<th>Column Fifteen</th>
+							<th>Column Sixteen</th>
+							<th>Column Seventeen</th>
+							<th>Column Eighteen</th>
+							<th>Column Nineteen</th>
+							<th>Column Twenty</th>
+						</tr>
+					</thead>
+					<tbody>
+						
+					</tbody>
+				</table>
+			</div><!-- .columns -->
+		</div><!-- .row -->
+	</div><!-- .main -->
+</div><!-- .page -->
+
+
+@section PageBodyEnd {
+<script>
+$(function() {
+	$('#ClearTable').on('click', function() {
+		clearTable();
+	});
+
+	$('#GenerateBatch').on('click', function() {
+		var numRows = $('#NumRows').val();
+		genrateTable(numRows, true);
+	});
+
+	$('#GenerateLoop').on('click', function() {
+		var numRows = $('#NumRows').val();
+		genrateTable(numRows, false);
+	});
+
+	$('#GenerateBatchDivs').on('click', function () {
+		var numRows = $('#NumRows').val();
+		genrateTableDivs(numRows, true);
+	});
+
+	$('#GenerateLoopDivs').on('click', function () {
+		var numRows = $('#NumRows').val();
+		genrateTableDivs(numRows, false);
+	});
+
+	$('#GenerateBatchDivsNoStyle').on('click', function () {
+		var numRows = $('#NumRows').val();
+		genrateTableDivs(numRows, true, true);
+	});
+
+	$('#GenerateLoopDivsNoStyle').on('click', function () {
+		var numRows = $('#NumRows').val();
+		genrateTableDivs(numRows, false, true);
+	});
+});
+
+function clearTable() {
+	$('#Table tbody').empty();
+}
+
+function genrateTable(nRows, batch) {
+	clearTable();
+
+	var $table = $('#Table');
+	var numCols = $('thead tr:eq(0) th', $table).length;
+	var htmlString = ''
+	// row loop
+	for(var i = 0; i < nRows; i++) {
+		htmlString += '<tr>';
+		
+		// column within a row loop
+		for (var j = 0; j < numCols; j++) {
+			if (j == 0) {
+				// write the first column special, then loop through the rest which are the same
+				htmlString += '<td>Row '+ (i+1) +'</td>';
+			} else {
+				htmlString += '<td><input type="text" class="value" value="' + (j + 1) + '"></td>'
+			}
+		}
+
+		htmlString +'</tr>';
+
+		if(!batch) {
+			$('tbody', $table).append(htmlString);
+			htmlString = '';
+		}
+	}
+
+	if (batch) {
+		// now that the htmlString contains the HTML for all the rows, insert it all at once in the <tbody>
+		$('tbody', $table).append(htmlString);
+	}
+}
+
+function genrateTableDivs(nRows, batch, removeStyle) {
+	clearTable();
+
+	var $table = $('#Table');
+	var numCols = $('thead tr:eq(0) th', $table).length;
+	var htmlString = ''
+	// row loop
+	for (var i = 0; i < nRows; i++) {
+		htmlString += '<tr>';
+
+		// column within a row loop
+		for (var j = 0; j < numCols; j++) {
+			if (j == 0) {
+				// write the first column special, then loop through the rest which are the same
+				htmlString += '<td>Row ' + (i + 1) + '</td>';
+			} else if (removeStyle) {
+				htmlString += '<td><div contenteditable="true">' + (j + 1) + '</div></td>'
+			} else {
+				htmlString += '<td><div class="faux-field value" contenteditable="true">' + (j + 1) + '</div></td>'
+			}
+		}
+
+		htmlString + '</tr>';
+
+		if (!batch) {
+			$('tbody', $table).append(htmlString);
+			htmlString = '';
+		}
+	}
+
+	if (batch) {
+		// now that the htmlString contains the HTML for all the rows, insert it all at once in the <tbody>
+		$('tbody', $table).append(htmlString);
+	}
+}
+
+
+</script>
+}
