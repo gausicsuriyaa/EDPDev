@@ -1,0 +1,21 @@
+ <!--li class="@( Page.Section == "Home" ? "active" : "") clearfix">
+            <div class="off-canvas_more" data-more data-nav-trigger="DashboardNav"><span class="off-canvas_nav-icon vzicon icon-collapsed"></span> DASHBOARD </div>
+            <ul class="float-left off-canvas_list m_level-2 hide" data-level="2" data-nav-content="DashboardNav">
+                <li class="float-left" data-tab-target="my-report">
+                    <div class="float-left width-80"><a class="off-canvas_link">My Report 1</a></div>
+                    <div class="float-right width-20" ><img src="~/Static/UI/Images/pin.png" class="pinned-report active"></div>
+                </li>
+                <li class="float-left" data-tab-target="region-ranking">
+                    <div class="float-left  width-80"><a class="off-canvas_link">Region Ranking</a></div>
+                    <div class="float-right  width-20"><img src="~/Static/UI/Images/pin.png" class="pinned-report"></div>
+                </li>
+                <li class="float-left" data-tab-target="broken-promise">
+                    <div class="float-left  width-80"><a class="off-canvas_link">Broken Promise</a></div>
+                    <div class="float-right  width-20"><img src="~/Static/UI/Images/pin.png" class="pinned-report"></div>
+                </li>
+                <li class="float-left" data-tab-target="big-5">
+                    <div class="float-left  width-80"><a class="off-canvas_link">Big 5</a></div>
+                    <div class="float-right  width-20"><img src="~/Static/UI/Images/pin.png" class="pinned-report"></div>
+                </li>
+            </ul>
+        </!--li>
