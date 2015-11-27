@@ -1,0 +1,22 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+	
+
+	@RenderSection("PageHeadEnd", required: false)
+</head>
+<body data-off-canvas-active="false">
+
+
+	@RenderPage("~/shared/_TopBar.cshtml")
+
+	@RenderPage("~/shared/_OffCanvasNav.cshtml")
+	
+	@RenderBody()
+
+	@RenderPage("~/shared/_GlobalFoot.cshtml")
+
+	@RenderSection("PageBodyEnd", required: false)
+
+</body>
+</html>
