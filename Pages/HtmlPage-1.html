@@ -1,0 +1,1000 @@
+@{
+    Layout = "~/Shared/_Layout.cshtml";
+    Page.Section = "Home";
+    Page.Name = "ExecutiveDashboard";
+    Page.Title = "Executive Dashboard";
+    Page.TopBarTitle = "Executive Dashboard";
+    Page.NavLevel = 1;
+}
+
+@section PageHeadEnd {
+    @* Stuff you put here is rendered just before the close of the
+<head>
+    tag.
+    This is the preferred place to put page-specific CSS file links. *@
+    }
+    <style>
+
+    </style>
+    <div class="dashboard-page tab-section">
+        <div class="page active">
+            <div class="main">
+                <div class="padding-left-small padding-right-small">
+                    <div class="ReportHeader">
+                        <strong>Marketing</strong>
+                        <div id="btn-data-toggle" class="right dashboard-toggle-first dashboard-toggle-last">
+                            <div title="Notification" data-toggle="notification" class="filter-notification-icon"></div>
+                            <div title="Filter" data-toggle="filter" class="filter-filter-icon"></div>
+                            <div title="Meter" data-toggle="drag" class="filter-meter-icon"></div>
+                            <div title="Table" data-toggle="table" class="filter-table-icon"></div>
+                            <div title="Bar Chart" data-toggle="chart" class="filter-chart-icon"></div>
+                        </div>
+                    </div>
+                    <div class="notification-wrapper padding-left-small padding-right-small padding-top-tiny margin-top-tiny padding-bottom-tiny hide" data-toggle-notification>
+                        <p class="highlight">
+                            Note: when using the “Date” or “To Date” filter in any view other than “Daily”, the data displayed will always reflect full weeks, months, quarters, or years based upon the date you selected. To determine partial period counts, please, use the Compare Date filter.
+                        </p>
+                        <p class="highlight">
+                            Business includes mass market and mid-tier
+                        </p>
+
+                        <p>
+                            Results do not include Hurricane Sandy or Dec 2013 Disconnect accruals.
+                        </p>
+
+                        <p>
+                            Standard Walk Metrics (FIOS TV, FIOS Internet, HSI, Voice) targets reflect the 5/24/14 BV.
+                        </p>
+
+                        <p>
+                            MDU targets reflect the 5/24/14 BV.
+                        </p>
+
+                        <p>
+                            NY Sub-Region targets reflect the 5/24/14 BV.
+                        </p>
+
+                        <p>
+                            Billable Lines CVs represent EOM targets.
+                        </p>
+                    </div>
+                    <div class="card-grid margin-top-tiny" data-toggle-filter>
+                        <div class="padding-left-small">
+                            <div class="text-xlarger text-grey-2-active">Filters</div>
+                            <div class="tiny-peek-3 small-peek-5 medium-peek-6 large-peek-8" data-peek id="FilterScroll">
+                                <ul>
+                                    <li>
+
+                                        <div class="bold text-small">Product:</div>
+                                        <div class="text-small"><a href="javascript:;" data-open-modal="filterPopup" class="filter-popup-link">Fios TV</a></div>
+
+                                    </li>
+                                    <li>
+
+                                        <div class="bold text-small">View:</div>
+                                        <div class="text-small"><a href="javascript:;" data-open-modal="filterPopup" class="filter-popup-link">Quarterly</a></div>
+
+                                    </li>
+                                    <li>
+
+                                        <div class="bold text-small">Like To Like</div>
+                                        <div class="text-small"><a href="javascript:;" data-open-modal="filterPopup" class="filter-popup-link">No</a></div>
+
+                                    </li>
+                                    <li>
+
+                                        <div class="bold text-small">Date:</div>
+                                        <div class="text-small"><a href="javascript:;" data-open-modal="filterPopup" class="filter-popup-link">12/28/2014</a></div>
+
+                                    </li>
+                                    <li>
+
+                                        <div class="bold text-small">RunRate:</div>
+                                        <div class="text-small"><a href="javascript:;" data-open-modal="filterPopup" class="filter-popup-link">No</a></div>
+
+                                    </li>
+                                    <li>
+
+                                        <div class="bold text-small">Property:</div>
+                                        <div class="text-small"><a href="javascript:;" data-open-modal="filterPopup" class="filter-popup-link">All</a></div>
+
+                                    </li>
+                                    <li>
+
+                                        <div class="bold text-small">LOB:</div>
+                                        <div class="text-small"><a href="javascript:;" data-open-modal="filterPopup" class="filter-popup-link">All</a></div>
+
+                                    </li>
+                                    <li>
+
+                                        <div class="bold text-small">Region:</div>
+                                        <div class="text-small"><a href="javascript:;" data-open-modal="filterPopup" class="filter-popup-link">All</a></div>
+
+                                    </li>
+                                    <!--li>
+
+                                        <div class="bold text-small">Area:</div>
+                                        <div class="text-small"><a href="javascript:;" data-open-modal="callSetFiltersStep4">Potomac, NY</a></div>
+
+                                    </!--li-->
+
+                                </ul>
+                            </div>
+                        </div>
+                        <!--<div class="text-xlarger text-grey-2-active padding-left-small padding-top-tiny">Filters</div>
+                        <div style="width: 1000px; overflow-x: hidden; overflow-y: scroll;" class="padding-left-small clearfix margin-top-medium">
+                            <div class="left margin-right-large">
+                                <div class="bold text-small margin-bottom-tiny">LOB:</div>
+                                <div class="text-small"><a href="javascript:;">FiOS</a></div>
+                            </div>
+                            <div class="left margin-right-large">
+                                <div class="bold text-small margin-bottom-tiny">Time Period:</div>
+                                <div class="text-small"><a href="javascript:;">FiOS</a></div>
+                            </div>
+                            <div class="left margin-right-large">
+                                <div class="bold text-small margin-bottom-tiny">Area:</div>
+                                <div class="text-small"><a href="javascript:;">FiOS</a></div>
+                            </div>
+                        </div>-->
+                    </div>
+
+                </div>
+
+                <div class="padding-left-small padding-right-small margin-top-tiny clearfix kpi-meter-wrapper hide" data-toggle-threshold>
+                    <div class="card-grid float-left padding-left-small">
+                        <div class="settings-Icons" data-open-modal="callSetFiltersStep7"><img src="../Static/UI/Images/settings.png" /></div>
+                        <div class="table-title kpi-meter padding-left-zero">KPI Meter</div>
+                        <!--<ul id="sCharts" class="sCharts tiny-block-grid-1 small-block-grid-1 medium-block-grid-3 large-block-grid-3">-->
+                        <ul id="sCharts" class="sCharts tiny-block-grid-1 small-block-grid-1 medium-block-grid-3 large-block-grid-3">
+                            <li class="sChart1 target_gross_sales">
+                                <div class="box card-grid float-left padding-bottom-zero">
+                                    <div class="box-tit tiny-12 small-12 medium-12 large-12 float-left">FiOS TV Gross Sales</div>
+                                    <div class="guageChart kpi-chart ">
+                                        <div class="box-qtr tiny-12 small-12 medium-12 large-12 green float-left">PQTR: 516,588</div>
+                                        <div class="box-cv small-12 tiny-12 medium-12 large-12 float-left">QTD CV: 411,264</div>
+                                        <div class="float-left large-12 small-12 tiny-12 medium-12 box-img">
+                                            <canvas id="gross-sales" class="guage-chart"></canvas>
+                                        </div>
+                                        <div class="box-bottom">
+                                            <div class="box-bottom-left float-left">
+                                                <select class="w-small" id="target_gross_sales">
+                                                    <option disabled selected>QTD</option>
+                                                    <option>WTD</option>
+                                                    <option>MTD</option>
+                                                    <option>QTD</option>
+                                                    <option>YTD</option>
+                                                </select>
+                                            </div>
+                                            <div class="box-bottom-right float-right red">394,741</div>
+                                        </div>
+                                    </div>
+                                    <div class="barChart kpi-chart hide float-left">
+
+                                    </div>
+                                    <div class="lineChart kpi-chart hide float-left">
+                                        <div id="GrossSales"></div>
+                                        <div class="box-bottom">
+                                            <div class="box-bottom-left float-left">
+                                                <select class="w-small" id="target_gross_sales_line">
+                                                    <option disabled selected>QTD</option>
+                                                    <option>WTD</option>
+                                                    <option>MTD</option>
+                                                    <option>QTD</option>
+                                                    <option>YTD</option>
+                                                </select>
+                                            </div><div class="box-bottom-right float-right green">394,741</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="sChart2 target_tv_cancels">
+                                <div class="box card-grid float-left padding-bottom-zero">
+                                    <div class="box-tit tiny-12 small-12 medium-12 large-12 float-left">FiOS TV Cancels</div>
+                                    <!-- Guage Chart-->
+                                    <div class="guageChart kpi-chart hide">
+                                        <div class="box-qtr tiny-12 small-12 medium-12 large-12 red float-left">PQTR: 516,588</div>
+                                        <div class="box-cv small-12 tiny-12 medium-12 large-12 float-left">QTD CV: 411,264</div>
+                                        <div class="float-left large-12 small-12 tiny-12 medium-12 box-img">
+                                            <canvas id="tv-cancels" class="guage-chart"></canvas>
+                                        </div><div class="box-bottom">
+                                            <div class="box-bottom-left float-left">
+                                                <select class="w-small" id="target_tv_cancels">
+                                                    <option disabled selected>QTD</option>
+                                                    <option>WTD</option>
+                                                    <option>MTD</option>
+                                                    <option>QTD</option>
+                                                    <option>YTD</option>
+                                                </select>
+                                            </div><div class="box-bottom-right float-right green">394,741</div>
+                                        </div>
+                                    </div>
+                                    <!-- Guage Chart Ends-->
+                                    <!-- Bar Chart-->
+                                    <div class="barChart kpi-chart hide float-left">
+
+                                    </div>
+                                    <!--Ends Bar Chart-->
+                                    <!-- Line Chart-->
+                                    <div class="lineChart kpi-chart float-left">
+                                        <div id="Cancels"></div>
+                                        <div class="box-bottom">
+                                            <div class="box-bottom-left float-left">
+                                                <select class="w-small" id="target_tv_cancels_line">
+                                                    <option disabled selected>QTD</option>
+                                                    <option>WTD</option>
+                                                    <option>MTD</option>
+                                                    <option>QTD</option>
+                                                    <option>YTD</option>
+                                                </select>
+                                            </div><div class="box-bottom-right float-right green">394,741</div>
+                                        </div>
+                                    </div>
+                                    <!--Ends Line Chart-->
+                                </div>
+                            </li>
+                            <li class="sChart3 target_tv_gross_adds">
+                                <div class="box card-grid float-left padding-bottom-zero">
+                                    <div class="box-tit tiny-12 small-12 medium-12 large-12 float-left">FiOS TV Gross Adds</div>
+                                    <div class="guageChart kpi-chart">
+                                        <div class="box-qtr tiny-12 small-12 medium-12 large-12 green float-left">PQTR: 516,588</div>
+                                        <div class="box-cv small-12 tiny-12 medium-12 large-12 float-left">QTD CV: 411,264</div>
+                                        <div class="float-left large-12 small-12 tiny-12 medium-12 box-img">
+                                            <canvas id="tv-gross-adds" class="guage-chart"></canvas>
+                                        </div>
+                                        <div class="box-bottom">
+                                            <div class="box-bottom-left float-left">
+                                                <select class="w-small" id="target_tv_gross_adds">
+                                                    <option disabled selected>QTD</option>
+                                                    <option>WTD</option>
+                                                    <option>MTD</option>
+                                                    <option>QTD</option>
+                                                    <option>YTD</option>
+                                                </select>
+                                            </div><div class="box-bottom-right float-right red">394,741</div>
+                                        </div>
+                                    </div>
+                                    <div class="barChart kpi-chart hide float-left">
+
+                                    </div>
+                                    <div class="lineChart kpi-chart hide float-left">
+                                        <div id="GrossAdds"></div>
+                                        <div class="box-bottom">
+                                            <div class="box-bottom-left float-left">
+                                                <select class="w-small" id="target_tv_gross_adds_line">
+                                                    <option disabled selected>QTD</option>
+                                                    <option>WTD</option>
+                                                    <option>MTD</option>
+                                                    <option>QTD</option>
+                                                    <option>YTD</option>
+                                                </select>
+                                            </div><div class="box-bottom-right float-right green">394,741</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="sChart4 target_tv_disconnects">
+                                <div class="box card-grid float-left padding-bottom-zero">
+                                    <div class="box-tit tiny-12 small-12 medium-12 large-12 float-left">FiOS TV Disconnects</div>
+                                    <div class="guageChart kpi-chart hide">
+                                        <div class="box-qtr tiny-12 small-12 medium-12 large-12 red float-left">PQTR: 516,588</div>
+                                        <div class="box-cv small-12 tiny-12 medium-12 large-12 float-left">QTD CV: 411,264</div>
+                                        <div class="float-left large-12 small-12 tiny-12 medium-12 box-img">
+                                            <canvas id="tv-disconnects" class="guage-chart"></canvas>
+                                        </div><div class="box-bottom">
+                                            <div class="box-bottom-left float-left">
+                                                <select class="w-small" id="target_tv_disconnects">
+                                                    <option disabled selected>QTD</option>
+                                                    <option>WTD</option>
+                                                    <option>MTD</option>
+                                                    <option>QTD</option>
+                                                    <option>YTD</option>
+                                                </select>
+                                            </div><div class="box-bottom-right float-right red">394,741</div>
+                                        </div>
+                                    </div>
+                                    <div class="barChart kpi-chart hide float-left">
+
+                                    </div>
+                                    <div class="lineChart kpi-chart float-left">
+                                        <div id="Disconnects"></div>
+                                        <div class="box-bottom">
+                                            <div class="box-bottom-left float-left">
+                                                <select class="w-small" id="target_tv_disconnects_line">
+                                                    <option disabled selected>QTD</option>
+                                                    <option>WTD</option>
+                                                    <option>MTD</option>
+                                                    <option>QTD</option>
+                                                    <option>YTD</option>
+                                                </select>
+                                            </div><div class="box-bottom-right float-right green">394,741</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="sChart5 target_tv_net_adds">
+                                <div class="box card-grid float-left padding-bottom-zero">
+                                    <div class="box-tit tiny-12 small-12 medium-12 large-12 float-left">FiOS TV Net Adds</div>
+                                    <div class="guageChart kpi-chart float-left">
+                                        <div class="box-qtr tiny-12 small-12 medium-12 large-12 red float-left">PQTR: 516,588</div>
+                                        <div class="box-cv small-12 tiny-12 medium-12 large-12 float-left">QTD CV: 411,264</div>
+                                        <div class="float-left large-12 small-12 tiny-12 medium-12 box-img">
+                                            <canvas id="tv-net-adds" class="guage-chart"></canvas>
+                                        </div>
+                                        <div class="box-bottom">
+                                            <div class="box-bottom-left float-left">
+                                                <select class="w-small" id="target_tv_net_adds">
+                                                    <option disabled selected>QTD</option>
+                                                    <option>WTD</option>
+                                                    <option>MTD</option>
+                                                    <option>QTD</option>
+                                                    <option>YTD</option>
+                                                </select>
+                                            </div>
+                                            <div class="box-bottom-right float-right green">394,741</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="barChart kpi-chart hide float-left">
+
+                                    </div>
+                                    <div class="lineChart kpi-chart hide float-left">
+                                        <div id="NetAdds"></div>
+                                        <div class="box-bottom">
+                                            <div class="box-bottom-left float-left">
+                                                <select class="w-small" id="target_tv_net_adds_line">
+                                                    <option disabled selected>QTD</option>
+                                                    <option>WTD</option>
+                                                    <option>MTD</option>
+                                                    <option>QTD</option>
+                                                    <option>YTD</option>
+                                                </select>
+                                            </div><div class="box-bottom-right float-right green">394,741</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="sChart6 target_tv_billable_lines">
+                                <div class="box card-grid float-left padding-bottom-zero">
+                                    <div class="box-tit tiny-12 small-12 medium-12 large-12 float-left">FiOS TV Billable Lines</div>
+                                    <div class="guageChart kpi-chart hide">
+                                        <div class="box-qtr tiny-12 small-12 medium-12 large-12 red float-left">PQTR: 516,588</div>
+                                        <div class="box-cv small-12 tiny-12 medium-12 large-12 float-left">QTD CV: 411,264</div>
+                                        <div class="float-left large-12 small-12 tiny-12 medium-12 box-img">
+                                            <canvas id="tv-billable-lines" class="guage-chart"></canvas>
+                                        </div><div class="box-bottom">
+                                            <div class="box-bottom-left float-left">
+                                                <select class="w-small" id="target_tv_billable_lines">
+                                                    <option disabled selected>QTD</option>
+                                                    <option>WTD</option>
+                                                    <option>MTD</option>
+                                                    <option>QTD</option>
+                                                    <option>YTD</option>
+                                                </select>
+                                            </div><div class="box-bottom-right float-right blue">394,741</div>
+                                        </div>
+                                    </div>
+                                    <div class="barChart kpi-chart float-left">
+
+                                    </div>
+                                    <div class="lineChart kpi-chart hide float-left">
+                                        <div id="BillableLines"></div>
+                                        <div class="box-bottom">
+                                            <div class="box-bottom-left float-left">
+                                                <select class="w-small" id="target_tv_billable_lines_line">
+                                                    <option disabled selected>QTD</option>
+                                                    <option>WTD</option>
+                                                    <option>MTD</option>
+                                                    <option>QTD</option>
+                                                    <option>YTD</option>
+                                                </select>
+                                            </div><div class="box-bottom-right float-right green">394,741</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </ul>
+                        <!--Read-only legends-->
+                        <div class="EDPdashboard-metrics kpi-meter-legends">
+                            <div class="filter-box-container float-left ">
+                                <div class="filter-box-contents row">
+                                    <div class="filter-box tiny-12 small-2 medium-2 large-2 columns">
+                                        <div class="">
+                                            <label for="belowAvgValue">Below Average <span class="navigator-icon margin-left-tiny"></span></label>
+                                        </div>
+                                        <div style="background-color: rgb(255, 185, 115);" class="circle bg-color-belowAvg margin-top-tiny"></div>
+                                    </div>
+                                    <div class="filter-box tiny-12 small-2 medium-2 large-2 columns">
+                                        <div class="float-left">
+                                            <label for="avgValue">Average <span class="navigator-icon margin-left-tiny"></span></label>
+                                        </div>
+                                        <div style="background-color: rgb(177, 202, 233);" class="circle bg-color-avg float-left margin-top-tiny"></div>
+                                    </div>
+                                    <div class="filter-box tiny-12 small-2 medium-2 large-2 columns">
+                                        <div class="">
+                                            <label for="aboveAvgValue">Above Average <span class="navigator-icon margin-left-tiny"></span></label>
+                                        </div>
+                                        <div style="background-color: rgb(153, 255, 153);" class="circle bg-color-aboveAvg margin-top-tiny"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="padding-all-zero clearfix">
+
+                    <div class="EDPdashboard-metrics report2 EDPdashboard-metrics padding-top-zero" data-toggle-table>
+                        <div class="EDP-drggable-table clearfix">
+                            <!-- Start EDP table  -->
+                            <div class="table-title" style="font-family:ApexBook;font-size:18px;font-style:normal;line-height:41px;">
+                                KPI Table
+                                <div class="acordion-table-wrapper float-right operation-toggle-cv">
+                                    <span class="toggle-table-columns"></span>
+                                </div>
+                            </div>
+                            <div class="settings-Icons-table" data-open-modal="marketingSettingModal"><img src="../Static/UI/Images/settings.png" /></div>
+                            <div class="w_freezegrid">
+                                <div class="grey-header">Marketing</div>
+                                <div class="freezegrid_scroll freezegrid_fixed-column m_column-medium m_cursor-ew">
+                                    <table class="table-metrics" id="marketing-data-table" data-editable-input="" data-drag-n-drop="">
+                                        <thead>
+                                            <tr class="m_disabled-draggable header">
+                                                <th class="m_w-80">Metric</th>
+                                                <th class=""><div class="" data-open-tooltip="TipB">DATA Thru</div></th>
+                                                <th class=""><div class="" data-open-tooltip="TipB">WE Dec-20</div></th>
+                                                <th class=""><div class="" data-open-tooltip="TipB">WE Dec-27</div></th>
+                                                <th class=""><div class="" data-open-tooltip="TipB">WE Dec-31</div></th>
+                                                <th class=""><div class="" data-open-tooltip="TipB">WE Jan-03</div></th>
+                                                <th class=""><div class="" data-open-tooltip="TipB">WE Jan-10 <br /> WTD</div></th>
+                                                <th class=""><div class="" data-open-tooltip="TipB">Oct 14</div></th>
+                                                <th class=""><div class="" data-open-tooltip="TipB">Nov 14</div></th>
+                                                <th class=""><div class="" data-open-tooltip="TipB">Dec 14</div></th>
+                                                <th class=""><div class="" data-open-tooltip="TipB">Jan 15 MTD</div></th>
+                                                <th class="cv-header"><div class="" data-open-tooltip="TipB">MTD CV</div></th>
+                                                <th class="cv-header"><div class="" data-open-tooltip="TipB">% MTD CV</div></th>
+                                                <th class=""><div class="" data-open-tooltip="TipB">Qtr 2 2014</div></th>
+                                                <th class=""><div class="" data-open-tooltip="TipB">Qtr 3 2014</div></th>
+                                                <th class=""><div class="" data-open-tooltip="TipB">Qtr 4 2014</div></th>
+                                                <th class=""><div class="" data-open-tooltip="TipB">Qtr 1 2015 QTD</div></th>
+                                                <th class="cv-header"><div class="" data-open-tooltip="TipB">QTD CV</div></th>
+                                                <th class="cv-header"><div class="" data-open-tooltip="TipB">% QTD CV</div></th>
+                                                <th class=""><div class="" data-open-tooltip="TipB">YE-2012</div></th>
+                                                <th class=""><div class="" data-open-tooltip="TipB">YE-2013</div></th>
+                                                <th class=""><div class="" data-open-tooltip="TipB">YE-2014</div></th>
+                                                <th class=""><div class="" data-open-tooltip="TipB">YTD-2015</div></th>
+                                                <th class="cv-header"><div class="" data-open-tooltip="TipB">YTD CV</div></th>
+                                                <th class="cv-header"><div class="" data-open-tooltip="TipB">% YTD CV</div></th>
+
+                                            </tr>
+                                        </thead>
+
+                                        <tbody class="m_draggable-wrap body">
+                                            <!--tr class="m_disabled-draggable">
+                                                <td class="metric_row">MARKETING</td>
+                                                <td class="metric_row" colspan="18"> </td>
+                                            </tr-->
+                                            <tr class="m_disabled-draggable header hide">
+                                                <th class="m_w-80">Metric</th>
+                                                <th class=""><div class="" data-open-tooltip="TipB">DATA Thru</div></th>
+                                                <th class=""><div class="" data-open-tooltip="TipB">WE Dec-20</div></th>
+                                                <th class=""><div class="" data-open-tooltip="TipB">WE Dec-27</div></th>
+                                                <th class=""><div class="" data-open-tooltip="TipB">WE Dec-31</div></th>
+                                                <th class=""><div class="" data-open-tooltip="TipB">WE Jan-03</div></th>
+                                                <th class=""><div class="" data-open-tooltip="TipB">WE Jan-10 <br /> WTD</div></th>
+                                                <th class=""><div class="" data-open-tooltip="TipB">Oct 14</div></th>
+                                                <th class=""><div class="" data-open-tooltip="TipB">Nov 14</div></th>
+                                                <th class=""><div class="" data-open-tooltip="TipB">Dec 14</div></th>
+                                                <th class=""><div class="" data-open-tooltip="TipB">Jan 15 MTD</div></th>
+                                                <th class="cv-header"><div class="" data-open-tooltip="TipB">MTD CV</div></th>
+                                                <th class="cv-header"><div class="" data-open-tooltip="TipB">% MTD CV</div></th>
+                                                <th class=""><div class="" data-open-tooltip="TipB">Qtr 2 2014</div></th>
+                                                <th class=""><div class="" data-open-tooltip="TipB">Qtr 3 2014</div></th>
+                                                <th class=""><div class="" data-open-tooltip="TipB">Qtr 4 2014</div></th>
+                                                <th class=""><div class="" data-open-tooltip="TipB">Qtr 1 2015 QTD</div></th>
+                                                <th class="cv-header"><div class="" data-open-tooltip="TipB">QTD CV</div></th>
+                                                <th class="cv-header"><div class="" data-open-tooltip="TipB">% QTD CV</div></th>
+                                                <th class=""><div class="" data-open-tooltip="TipB">YE-2012</div></th>
+                                                <th class=""><div class="" data-open-tooltip="TipB">YE-2013</div></th>
+                                                <th class=""><div class="" data-open-tooltip="TipB">YE-2014</div></th>
+                                                <th class=""><div class="" data-open-tooltip="TipB">YTD-2015</div></th>
+                                                <th class="cv-header"><div class="" data-open-tooltip="TipB">YTD CV</div></th>
+                                                <th class="cv-header"><div class="" data-open-tooltip="TipB">% YTD CV</div></th>
+
+                                            </tr>
+                                            <tr class="m_disabled-draggable marketing FiOS_TV_Gross_Sales">
+                                                <td class="">
+                                                    <span class="table-category">FiOS TV Gross Sales</span>
+                                                    <span class="hidden-tooltip-icon" data-open-tooltip="TipA"></span>
+                                                    <span class="active-high-low"></span>
+                                                    <span class="active-alarm"></span>
+                                                </td>
+                                                <td class="data-thru">08-Jan</td>
+                                                <td class="value week we-dec-06">-</td>
+                                                <td class="value week we-dec-13">24,247</td>
+                                                <td class="value week we-dec-20">21,171</td>
+                                                <td class="value week we-dec-27">12,416</td>
+                                                <td class="week weekend we-dec-31-wtd-0">28,305</td>
+                                                <td class="value month">147,190</td>
+                                                <td class="value month">143,954</td>
+                                                <td class="value month">146,924</td>
+                                                <td class="value month we-dec-113 monthend">40,721</td>
+                                                <td class="mtdcv we-dec-133-mtd">34,340</td>
+                                                <td class="value sat-10-225 calc-avg-month">118.6%</td>
+                                                <!-- #MTD -->
+                                                <td class="value qtr sun-10-225">465,579</td> <!-- #qtr -->
+                                                <td class="value qtr sun-10-235">516,588</td> <!-- #qtr -->
+                                                <td class="value qtr sun-10-245">438,068</td> <!-- #qtr -->
+                                                <td class="value qtr qtrend tue-10-225">40,721</td>
+                                                <td class="value qtdcv wed-10-225">34,340</td>
+                                                <td class="value sat-10-225 calc-avg-month">118.6%</td>
+                                                <!-- #QTDEnd -->
+                                                <td class="value year fri-10-225">-</td> <!-- #year -->
+                                                <td class="value year fri-10-235">1,802,914</td> <!-- #year -->
+                                                <td class="value year fri-10-225">1,795,921</td> <!-- #year -->
+                                                <td class="value year yearend fri-10-215">40,721</td> <!-- YTDEnd -->
+                                                <td class="value value ytdcv fri-10-225">34,340</td>
+                                                <td class="value fri-10-25 calc-avg-year">118.6%</td>
+
+                                            </tr>
+                                            <tr class="m_disabled-draggable marketing FiOS_TV_Cancels">
+                                                <td class="">
+                                                    <span class="table-category">FiOS TV Cancels</span>
+                                                    <span class="hidden-tooltip-icon" data-open-tooltip="TipA"></span>
+                                                    <span class="active-high-low"></span>
+                                                    <span class="active-alarm"></span>
+                                                </td>
+                                                <td class="data-thru">08-Jan</td>
+                                                <td class="value week we-dec-06">-</td>
+                                                <td class="value week we-dec-13">3,160</td>
+                                                <td class="value week we-dec-20">2,458</td>
+                                                <td class="value week we-dec-27">1,256</td>
+                                                <td class="week weekend we-dec-31-wtd-0">3,580</td>
+                                                <td class="value month">18,038</td>
+                                                <td class="value month">15,959</td>
+                                                <td class="value month">18,727</td>
+                                                <td class="value month we-dec-113 monthend">4,836</td>
+                                                <td class="mtdcv value wed-10-25">3,802</td>
+                                                <td class="value sat-10-225 calc-avg-month">72.8%</td>
+                                                <td class="value qtr sun-10-225">52,983</td>
+                                                <td class="value qtr sun-10-235">58,359</td>
+                                                <td class="value qtr sun-10-245">52,724</td>
+                                                <td class="value qtr qtrend tue-10-225">4,836</td>
+                                                <td class="value qtdcv wed-10-225">3,802</td>
+                                                <td class="value thur-10-25 calc-avg-qtr">72.8%</td>
+                                                <td class="value year fri-10-225 ">-</td>
+                                                <td class="value year fri-10-235">242,228</td>
+                                                <td class="value year fri-10-225 ">215,408</td>
+                                                <td class="value year yearend fri-10-215 ">4,836</td>
+                                                <td class="value value ytdcv fri-10-225">3,802</td>
+                                                <td class="value fri-10-25 calc-avg-year">72.8%</td>
+
+                                            </tr>
+                                            <tr class="m_disabled-draggable marketing FiOS_TV_Gross_Adds">
+                                                <td class="">
+                                                    <span class="table-category">FiOS TV Gross Adds</span>
+                                                    <span class="hidden-tooltip-icon" data-open-tooltip="TipA"></span>
+                                                    <span class="active-high-low"></span>
+                                                    <span class="active-alarm"></span>
+                                                </td>
+                                                <td class="data-thru">08-Jan</td>
+                                                <td class="value week we-dec-06">-</td>
+                                                <td class="value week we-dec-13">24,724</td>
+                                                <td class="value week we-dec-20">17,047</td>
+                                                <td class="value week we-dec-27">8,921</td>
+                                                <td class="week weekend we-dec-31-wtd-0">22,543</td>
+                                                <td class="value month">137,079</td>
+                                                <td class="value month">120,018</td>
+                                                <td class="value month">135,261</td>
+                                                <td class="value month we-dec-113 monthend">31,464</td>
+                                                <td class="mtdcv we-dec-133-mtd">30,538</td>
+                                                <td class="value sat-10-225 calc-avg-month">103.0%</td>
+                                                <td class="value qtr sun-10-225">400,520</td>
+                                                <td class="value qtr sun-10-235">460,252</td>
+                                                <td class="value qtr sun-10-245">392,358</td>
+                                                <td class="value qtr qtrend tue-10-225">31,464</td>
+                                                <td class="value qtdcv wed-10-225">30,538</td>
+                                                <td class="value thur-10-25 calc-avg-qtr">103.0%</td>
+                                                <td class="value year fri-10-225 ">-</td>
+                                                <td class="value year fri-10-235">1,585,028</td>
+                                                <td class="value year fri-10-225 ">1,576,184</td>
+                                                <td class="value year yearend fri-10-215">31,464</td>
+                                                <td class="value value ytdcv fri-10-225">30,538</td>
+                                                <td class="value fri-10-25 calc-avg-year">103.0%</td>
+
+                                            </tr>
+                                            <tr class="m_disabled-draggable marketing FiOS_TV_Disconnects">
+                                                <td class="">
+                                                    <span class="table-category"> FiOS TV Disconnects</span>
+                                                    <span class="hidden-tooltip-icon" data-open-tooltip="TipA"></span>
+                                                    <span class="active-high-low"></span>
+                                                    <span class="active-alarm"></span>
+                                                </td>
+                                                <td class="data-thru">08-Jan</td>
+                                                <td class="value week we-dec-06">-</td>
+                                                <td class="value week we-dec-13">16,382</td>
+                                                <td class="value week we-dec-20">12,309</td>
+                                                <td class="value week we-dec-27">6,400</td>
+                                                <td class="week weekend we-dec-31-wtd-0">20,098</td>
+                                                <td class="value month">99,874</td>
+                                                <td class="value month">81,546</td>
+                                                <td class="value month">90,169</td>
+                                                <td class="value month we-dec-113 monthend">26,498</td>
+                                                <td class="mtdcv we-dec-133-mtd">22,769</td>
+                                                <td class="value sat-10-225 calc-avg-month">83.6%</td>
+                                                <td class="value qtr sun-10-225">300,748</td>
+                                                <td class="value qtr sun-10-235">346,287</td>
+                                                <td class="value qtr sun-10-245">271,589</td>
+                                                <td class="value qtr qtrend tue-10-225">26,498</td>
+                                                <td class="value qtdcv wed-10-225">22,769</td>
+                                                <td class="value thur-10-25 calc-avg-qtr">83.6%</td>
+                                                <td class="value year fri-10-225">-</td>
+                                                <td class="value year fri-10-235">1,056,413</td>
+                                                <td class="value year fri-10-225">1,185,338</td>
+                                                <td class="value year yearend fri-10-215">26,498</td>
+                                                <td class="value value ytdcv fri-10-225">22,769</td>
+                                                <td class="value fri-10-25 calc-avg-year">83.6%</td>
+
+                                            </tr>
+                                            <tr class="m_disabled-draggable marketing FiOS_TV_Net_Adds">
+                                                <td class="">
+                                                    <span class="table-category"> FiOS TV Net Adds</span>
+                                                    <span class="hidden-tooltip-icon" data-open-tooltip="TipA"></span>
+                                                    <span class="active-high-low"></span>
+                                                    <span class="active-alarm"></span>
+                                                </td>
+                                                <td class="data-thru">08-Jan</td>
+                                                <td class="value week we-dec-06">-</td>
+                                                <td class="value week we-dec-13">8,342</td>
+                                                <td class="value week we-dec-20">4,738</td>
+                                                <td class="value week we-dec-27">2,521</td>
+                                                <td class="week weekend we-dec-31-wtd-0">2,445</td>
+                                                <td class="value month">37,205</td>
+                                                <td class="value month">38,472</td>
+                                                <td class="value month">45,092</td>
+                                                <td class="value month we-dec-113 monthend">4,966</td>
+                                                <td class="mtdcv we-dec-133-mtd">7,769</td>
+                                                <td class="value sat-10-225 calc-avg-month">63.9%</td>
+                                                <td class="value qtr sun-10-225">99,772</td>
+                                                <td class="value qtr sun-10-235">113,965</td>
+                                                <td class="value qtr sun-10-245">120,769</td>
+                                                <td class="value qtr qtrend tue-10-225">4,966</td>
+                                                <td class="value qtdcv wed-10-225">7,769</td>
+                                                <td class="value thur-10-25 calc-avg-qtr">63.9%</td>
+                                                <td class="value year fri-10-225">-</td>
+                                                <td class="value year fri-10-235">528,615</td>
+                                                <td class="value year fri-10-225">390,846</td>
+                                                <td class="value year yearend fri-10-215">4,966</td>
+                                                <td class="value value ytdcv fri-10-225">7,769</td>
+                                                <td class="value fri-10-25 calc-avg-year">63.9%</td>
+
+                                            </tr>
+                                            <tr class="m_disabled-draggable marketing FiOS_TV_Billable_Lines">
+                                                <td class="">
+                                                    <span class="table-category"> FiOS TV Billable Lines</span>
+                                                    <span class="hidden-tooltip-icon" data-open-tooltip="TipA"></span>
+                                                    <span class="active-high-low"></span>
+                                                    <span class="active-alarm"></span>
+                                                </td>
+                                                <td class="data-thru">08-Jan</td>
+                                                <td class="value week we-dec-06">-</td>
+                                                <td class="value week we-dec-13">5,649,179</td>
+                                                <td class="value week we-dec-20">5,653,917</td>
+                                                <td class="value week we-dec-27">5,656,438</td>
+                                                <td class="week weekend we-dec-31-wtd-0">5,658,883</td>
+                                                <td class="value month">5,570,353</td>
+                                                <td class="value month">5,608,825</td>
+                                                <td class="value month">5,653,917</td>
+                                                <td class="value month we-dec-113 monthend">5,658,883</td>
+                                                <td class="mtdcv we-dec-133-mtd">5,687,824</td>
+                                                <td class="value sat-10-225 calc-avg-month">99.5%</td>
+                                                <td class="value qtr sun-10-225">5,419,183</td>
+                                                <td class="value qtr sun-10-235">5,533,148</td>
+                                                <td class="value qtr sun-10-245">5,653,917</td>
+                                                <td class="value qtr qtrend tue-10-225">5,658,883</td>
+                                                <td class="value qtdcv wed-10-225">5,687,824</td>
+                                                <td class="value thur-10-25 calc-avg-qtr">99.5%</td>
+                                                <td class="value year fri-10-225">-</td>
+                                                <td class="value year fri-10-235">5,263,071</td>
+                                                <td class="value year fri-10-225">5,653,917</td>
+                                                <td class="value year yearend fri-10-215">5,658,883</td>
+                                                <td class="value value ytdcv fri-10-225">5,687,824</td>
+                                                <td class="value fri-10-25 calc-avg-year">99.5%</td>
+
+                                            </tr>
+                                            <tr class="m_disabled-draggable marketing FiOS_TV_SSP_Pending">
+                                                <td class="">
+                                                    <span class="table-category"> FiOS TV SSP Pending</span>
+                                                    <span class="hidden-tooltip-icon" data-open-tooltip="TipA"></span>
+                                                    <span class="active-high-low"></span>
+                                                    <span class="active-alarm"></span>
+                                                </td>
+                                                <td class="data-thru">08-Jan</td>
+                                                <td class="value week we-dec-06">-</td>
+                                                <td class="value week we-dec-13">37,586</td>
+                                                <td class="value week we-dec-20">39,473</td>
+                                                <td class="value week we-dec-27">41,342</td>
+                                                <td class="week weekend we-dec-31-wtd-0">44,054</td>
+                                                <td class="value month">38,576</td>
+                                                <td class="value month">45,429</td>
+                                                <td class="value month">39,473</td>
+                                                <td class="value month we-dec-113 monthend">44,054</td>
+                                                <td class="mtdcv we-dec-133-mtd">-</td>
+                                                <td class="value sat-10-225 calc-avg-month">-</td>
+                                                <td class="value qtr sun-10-225">46,279</td>
+                                                <td class="value qtr sun-10-235">45,827</td>
+                                                <td class="value qtr sun-10-245">39,473</td>
+                                                <td class="value qtr qtrend tue-10-225">44,054</td>
+                                                <td class="value qtdcv wed-10-225">-</td>
+                                                <td class="value thur-10-25 calc-avg-qtr">-</td>
+                                                <td class="value year fri-10-225">-</td>
+                                                <td class="value year fri-10-235">31,101</td>
+                                                <td class="value year fri-10-225">39,473</td>
+                                                <td class="value year yearend fri-10-215">44,054</td>
+                                                <td class="value value ytdcv fri-10-225">-</td>
+                                                <td class="value fri-10-25 calc-avg-year">-</td>
+
+                                            </tr>
+                                            <!--duplicating-->
+                                            <tr class="m_disabled-draggable">
+                                                <td class="metric_row"></td>
+                                                <td class="metric_row" colspan="24">-</td>
+                                            </tr>
+
+                                            <tr class="m_disabled-draggable marketing Broadband_Gross_Sales">
+                                                <td class="">
+                                                    <span class="table-category">Broadband Gross Sales</span>
+                                                    <span class="hidden-tooltip-icon" data-open-tooltip="TipA"></span>
+                                                    <span class="active-high-low"></span>
+                                                    <span class="active-alarm"></span>
+                                                </td>
+                                                <td class="data-thru">08-Jan</td>
+                                                <td class="value week we-dec-06">-</td>
+                                                <td class="value week we-dec-13">35,831</td>
+                                                <td class="value week we-dec-20">31,058</td>
+                                                <td class="value week we-dec-27">17,669</td>
+                                                <td class="week weekend we-dec-31-wtd-0">41,441</td>
+                                                <td class="value month">223,639</td>
+                                                <td class="value month">206,784</td>
+                                                <td class="value month">215,999</td>
+                                                <td class="value month we-dec-113 monthend">59,110</td>
+                                                <td class="mtdcv we-dec-133-mtd">52,473</td>
+                                                <td class="value sat-10-225 calc-avg-month">112.6%</td>
+                                                <td class="value qtr sun-10-225">698,250</td>
+                                                <td class="value qtr sun-10-235">776,190</td>
+                                                <td class="value qtr sun-10-245">646,422</td>
+                                                <td class="value qtr qtrend tue-10-225">59,110</td>
+                                                <td class="value qtdcv wed-10-225">52,473</td>
+                                                <td class="value thur-10-25 calc-avg-qtr">112.6%</td>
+                                                <td class="value year fri-10-225">-</td>
+                                                <td class="value year fri-10-235">2,852,638</td>
+                                                <td class="value year fri-10-225">2,737,208</td>
+                                                <td class="value year yearend fri-10-215">59,110</td>
+                                                <td class="value value ytdcv fri-10-225">52,473</td>
+                                                <td class="value fri-10-25 calc-avg-year">112.6%</td>
+
+                                            </tr>
+                                            <tr class="m_disabled-draggable marketing Broadband_Cancels">
+                                                <td class="">
+                                                    <span class="table-category">Broadband Cancels</span>
+                                                    <span class="hidden-tooltip-icon" data-open-tooltip="TipA"></span>
+                                                    <span class="active-high-low"></span>
+                                                    <span class="active-alarm"></span>
+                                                </td>
+                                                <td class="data-thru">08-Jan</td>
+                                                <td class="value week we-dec-06">-</td>
+                                                <td class="value week we-dec-13">4,996</td>
+                                                <td class="value week we-dec-20">3,660</td>
+                                                <td class="value week we-dec-27">1,885</td>
+                                                <td class="week weekend we-dec-31-wtd-0">5,755</td>
+                                                <td class="value month">28,946</td>
+                                                <td class="value month">24,949</td>
+                                                <td class="value month">28,837</td>
+                                                <td class="value month we-dec-113 monthend">7,640</td>
+                                                <td class="mtdcv we-dec-133-mtd">6,526</td>
+                                                <td class="value sat-10-225 calc-avg-month">82.9%</td>
+                                                <td class="value qtr sun-10-225">84,965</td>
+                                                <td class="value qtr sun-10-235">93,054</td>
+                                                <td class="value qtr sun-10-245">82,732</td>
+                                                <td class="value qtr qtrend tue-10-225">7,640</td>
+                                                <td class="value qtdcv wed-10-225">6,526</td>
+                                                <td class="value thur-10-25 calc-avg-qtr">82.9%</td>
+                                                <td class="value year fri-10-225">-</td>
+                                                <td class="value year fri-10-235">406,792</td>
+                                                <td class="value year fri-10-225">347,099</td>
+                                                <td class="value year yearend fri-10-215">7,640</td>
+                                                <td class="value value ytdcv fri-10-225">6,526</td>
+                                                <td class="value fri-10-25 calc-avg-year">82.9%</td>
+
+                                            </tr>
+                                            <tr class="m_disabled-draggable marketing Broadband_Gross_Adds">
+                                                <td class="">
+                                                    <span class="table-category">Broadband Gross Adds</span>
+                                                    <span class="hidden-tooltip-icon" data-open-tooltip="TipA"></span>
+                                                    <span class="active-high-low"></span>
+                                                    <span class="active-alarm"></span>
+                                                </td>
+                                                <td class="data-thru">08-Jan</td>
+                                                <td class="value week we-dec-06">-</td>
+                                                <td class="value week we-dec-13">34,552</td>
+                                                <td class="value week we-dec-20">23,889</td>
+                                                <td class="value week we-dec-27">12,772</td>
+                                                <td class="week weekend we-dec-31-wtd-0">34,117</td>
+                                                <td class="value month">204,957</td>
+                                                <td class="value month">172,388</td>
+                                                <td class="value month">192,800</td>
+                                                <td class="value month we-dec-113 monthend">46,889</td>
+                                                <td class="mtdcv we-dec-133-mtd">45,945</td>
+                                                <td class="value sat-10-225 calc-avg-month">102.1%</td>
+                                                <td class="value qtr sun-10-225">595,952</td>
+                                                <td class="value qtr sun-10-235">684,545</td>
+                                                <td class="value qtr sun-10-245">570,145</td>
+                                                <td class="value qtr qtrend tue-10-225">46,889</td>
+                                                <td class="value qtdcv wed-10-225">45,945</td>
+                                                <td class="value thur-10-25 calc-avg-qtr">102.1%</td>
+                                                <td class="value year fri-10-225">-</td>
+                                                <td class="value year fri-10-235">2,471,232</td>
+                                                <td class="value year fri-10-225">2,372,233</td>
+                                                <td class="value year yearend fri-10-215">46,889</td>
+                                                <td class="value value ytdcv fri-10-225">45,945</td>
+                                                <td class="value fri-10-25 calc-avg-year">102.1%</td>
+
+                                            </tr>
+                                            <tr class="m_disabled-draggable marketing Broadband_Disconnects">
+                                                <td class="">
+                                                    <span class="table-category"> Broadband Disconnects</span>
+                                                    <span class="hidden-tooltip-icon" data-open-tooltip="TipA"></span>
+                                                    <span class="active-high-low"></span>
+                                                    <span class="active-alarm"></span>
+                                                </td>
+                                                <td class="data-thru">08-Jan</td>
+                                                <td class="value week we-dec-06">-</td>
+                                                <td class="value week we-dec-13">30,153</td>
+                                                <td class="value week we-dec-20">22,512</td>
+                                                <td class="value week we-dec-27">10,729</td>
+                                                <td class="week weekend we-dec-31-wtd-0">34,430</td>
+                                                <td class="value month">186,091</td>
+                                                <td class="value month">151,419</td>
+                                                <td class="value month">168,448</td>
+                                                <td class="value month we-dec-113 monthend">45,159</td>
+                                                <td class="mtdcv we-dec-133-mtd">40,300</td>
+                                                <td class="value sat-10-225 calc-avg-month">87.9%</td>
+                                                <td class="value qtr sun-10-225">550,050</td>
+                                                <td class="value qtr sun-10-235">615,267</td>
+                                                <td class="value qtr sun-10-245">505,958</td>
+                                                <td class="value qtr qtrend tue-10-225">45,159</td>
+                                                <td class="value qtdcv wed-10-225">40,300</td>
+                                                <td class="value thur-10-25 calc-avg-qtr">87.9%</td>
+                                                <td class="value year fri-10-225">-</td>
+                                                <td class="value year fri-10-235">2,263,927</td>
+                                                <td class="value year fri-10-225">2,178,732</td>
+                                                <td class="value year yearend fri-10-215">45,159</td>
+                                                <td class="value value ytdcv fri-10-225">40,300</td>
+                                                <td class="value fri-10-25 calc-avg-year">87.9%</td>
+
+                                            </tr>
+                                            <tr class="m_disabled-draggable marketing Broadband_Net_Adds">
+                                                <td class="">
+                                                    <span class="table-category">Broadband Net Adds</span>
+                                                    <span class="hidden-tooltip-icon" data-open-tooltip="TipA"></span>
+                                                    <span class="active-high-low"></span>
+                                                    <span class="active-alarm"></span>
+                                                </td>
+                                                <td class="data-thru">08-Jan</td>
+                                                <td class="value week we-dec-06">-</td>
+                                                <td class="value week we-dec-13">4,399</td>
+                                                <td class="value week we-dec-20">1,377</td>
+                                                <td class="value week we-dec-27">2,043</td>
+                                                <td class="week weekend we-dec-31-wtd-0">(313)</td>
+                                                <td class="value month">18,866</td>
+                                                <td class="value month">20,969</td>
+                                                <td class="value month">24,352</td>
+                                                <td class="value month we-dec-113 monthend">1,730</td>
+                                                <td class="mtdcv we-dec-133-mtd">5,645</td>
+                                                <td class="value sat-10-225 calc-avg-month">30.6%</td>
+                                                <td class="value qtr sun-10-225">45,902</td>
+                                                <td class="value qtr sun-10-235">69,278</td>
+                                                <td class="value qtr sun-10-245">64,187</td>
+                                                <td class="value qtr qtrend tue-10-225">1,730</td>
+                                                <td class="value qtdcv wed-10-225">5,645</td>
+                                                <td class="value thur-10-25 calc-avg-qtr">30.6%</td>
+                                                <td class="value year fri-10-225">-</td>
+                                                <td class="value year fri-10-235">207,305</td>
+                                                <td class="value year fri-10-225">193,501</td>
+                                                <td class="value year yearend fri-10-215">1,730</td>
+                                                <td class="value value ytdcv fri-10-225">5,645</td>
+                                                <td class="value fri-10-25 calc-avg-year">30.6%</td>
+
+                                            </tr>
+                                            <tr class="m_disabled-draggable marketing Broadband_Billable_Lines">
+                                                <td class="">
+                                                    <span class="table-category">Broadband Billable Lines</span>
+                                                    <span class="hidden-tooltip-icon" data-open-tooltip="TipA"></span>
+                                                    <span class="active-high-low"></span>
+                                                    <span class="active-alarm"></span>
+                                                </td>
+                                                <td class="data-thru">08-Jan</td>
+                                                <td class="value week we-dec-06">-</td>
+                                                <td class="value week we-dec-13">9,208,629</td>
+                                                <td class="value week we-dec-20">9,210,006</td>
+                                                <td class="value week we-dec-27">9,212,049</td>
+                                                <td class="week weekend we-dec-31-wtd-0">9,211,736</td>
+                                                <td class="value month">9,164,685</td>
+                                                <td class="value month">9,185,654</td>
+                                                <td class="value month">9,210,006</td>
+                                                <td class="value month we-dec-113 monthend">9,211,736</td>
+                                                <td class="mtdcv we-dec-133-mtd">9,238,787</td>
+                                                <td class="value sat-10-225 calc-avg-month">99.7%</td>
+                                                <td class="value qtr sun-10-225">9,076,541</td>
+                                                <td class="value qtr sun-10-235">9,145,819</td>
+                                                <td class="value qtr sun-10-245">9,210,006</td>
+                                                <td class="value qtr qtrend tue-10-225">9,211,736</td>
+                                                <td class="value qtdcv wed-10-225">9,238,787</td>
+                                                <td class="value thur-10-25 calc-avg-qtr">99.7%</td>
+                                                <td class="value year fri-10-225">-</td>
+                                                <td class="value year fri-10-235">9,016,505</td>
+                                                <td class="value year fri-10-225">9,210,006</td>
+                                                <td class="value year yearend fri-10-215">9,211,736</td>
+                                                <td class="value value ytdcv fri-10-225">9,238,787</td>
+                                                <td class="value fri-10-25 calc-avg-year">99.7%</td>
+
+                                            </tr>
+                                            <tr class="m_disabled-draggable marketing Broadband_SSP_Pending">
+                                                <td class="">
+                                                    <span class="table-category">Broadband SSP Pending</span>
+                                                    <span class="hidden-tooltip-icon" data-open-tooltip="TipA"></span>
+                                                    <span class="active-high-low"></span>
+                                                    <span class="active-alarm"></span>
+                                                </td>
+                                                <td class="data-thru">08-Jan</td>
+                                                <td class="value week we-dec-06">-</td>
+                                                <td class="value week we-dec-13">60,188</td>
+                                                <td class="value week we-dec-20">63,408</td>
+                                                <td class="value week we-dec-27">65,720</td>
+                                                <td class="week weekend we-dec-31-wtd-0">67,648</td>
+                                                <td class="value month">62,187</td>
+                                                <td class="value month">69,964</td>
+                                                <td class="value month">63,408</td>
+                                                <td class="value month we-dec-113 monthend">67,648</td>
+                                                <td class="mtdcv we-dec-133-mtd">-</td>
+                                                <td class="value sat-10-225 calc-avg-month">-</td>
+                                                <td class="value qtr sun-10-225">75,582</td>
+                                                <td class="value qtr sun-10-235">73,660</td>
+                                                <td class="value qtr sun-10-245">63,408</td>
+                                                <td class="value qtr qtrend tue-10-225">67,648</td>
+                                                <td class="value qtdcv wed-10-225">-</td>
+                                                <td class="value thur-10-25 calc-avg-qtr">-</td>
+                                                <td class="value year fri-10-225">-</td>
+                                                <td class="value year fri-10-235">53,520</td>
+                                                <td class="value year fri-10-225">63,408</td>
+                                                <td class="value year yearend fri-10-215">67,648</td>
+                                                <td class="value value ytdcv fri-10-225">-</td>
+                                                <td class="value fri-10-25 calc-avg-year">-</td>
+
+                                            </tr>
+
+                                            <!--duplicating-->
+                                            <tr class="m_disabled-draggable">
+                                                <td class="metric_row"></td>
+                                                <td class="metric_row" colspan="24">-</td>
+                                            </tr>
+                                            <tr class="m_disabled-draggable marketing FiOS_Internet_Gross_Sales">
+                                                <td class="">
+                                                    <span class="table-category"> FiOS Internet Gross Sales</span>
+                                                    <span class="hidden-tooltip-icon" data-open-tooltip="TipA"></span>
+                                                    <span class="active-high-low"></span>
+                                                    <span class="active-alarm"></span>
+                                                </td>
+                                                <td class="data-thru">08-Jan</td>
+                                                <td class="value week we-dec-06">-</td>
+                                                <td class="value week we-dec-13">28,676</td>
+                                                <td class="value week we-dec-20">24,935</td>
+                                                <td class="value week we-dec-27">14,305</td>
+                                                <td class="week weekend we-dec-31-wtd-0">33,144</td>
+                                                <td class="value month">172,788</td>
+                                                <td class="value month">165,946</td>
+                                                <td class="value month">172,637</td>
+                                                <td class="value month we-dec-113 monthend">47,449</td>
+                                                <td class="mtdcv we-dec-133-mtd">41,598</td>
