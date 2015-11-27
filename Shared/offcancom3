@@ -1,0 +1,25 @@
+<li class="@( Page.Section == "Entertainment" ? "active" : "") clearfix">
+            <div class="off-canvas_more" data-more data-nav-trigger="MarketingNav"><span class="off-canvas_nav-icon vzicon icon-collapsed"></span> MARKETING</div>
+            <ul class="off-canvas_list m_level-2 hide" data-level="2" data-nav-content="MarketingNav">
+                <li class="float-left" data-tab-target="summary">
+                    <div class="float-left width-80"><a class="off-canvas_link">Summary</a></div>
+                    <div class="float-right width-20"><img src="~/Static/UI/Images/pin.png" class="pinned-report"></div>
+                </li>
+                <li class="float-left" data-tab-target="agent-region">
+                    <div class="float-left  width-80"><a class="off-canvas_link">Agent Region</a></div>
+                    <div class="float-right  width-20"><img src="~/Static/UI/Images/pin.png" class="pinned-report"></div>
+                </li>
+                <li class="float-left" data-tab-target="director">
+                    <div class="float-left  width-80"><a class="off-canvas_link">Director</a></div>
+                    <div class="float-right  width-20"><img src="~/Static/UI/Images/pin.png" class="pinned-report"></div>
+                </li>
+                <li class="float-left" data-tab-target="center">
+                    <div class="float-left  width-80"><a class="off-canvas_link">Center</a></div>
+                    <div class="float-right  width-20"><img src="~/Static/UI/Images/pin.png" class="pinned-report"></div>
+                </li>
+                <li class="float-left" data-tab-target="customer-area-region">
+                    <div class="float-left  width-80"><a class="off-canvas_link">Customer Area Region</a></div>
+                    <div class="float-right  width-20"><img src="~/Static/UI/Images/pin.png" class="pinned-report"></div>
+                </li>
+            </ul>
+        </li-->
